@@ -4,6 +4,20 @@ metadata:
   description: Creates basic Go service with an AWS S3 bucket, a GitHub repository and ArgoCD Application. 
   name: go-app-s3
   title: Create a Go service with S3 bucket
+  annotations:
+    backstage.io/techdocs-ref: "dir: ./docs"
+  links:
+    - title: Kubernetes integration
+      url: https://backstage.io/docs/features/kubernetes/
+    - title: GitHub integration
+      url: https://backstage.io/docs/features/integrations/github/
+    - title: ArgoCD integration 
+      url: https://backstage.io/docs/features/argo-cd/ 
+    - title: Well known Backstage annotations
+      url: https://backstage.io/docs/features/software-catalog/well-known-annotations/
+    - title: Backstage Software Templates 
+      url: https://backstage.io/docs/features/software-templates/
+       
 spec:
   owner: platform
   type: service
@@ -19,14 +33,14 @@ spec:
           title: GitHub Owner of Application Repository
           type: string
           description: Unique owner of the component repository
-          ui:autofocus: true
+          # ui:autofocus: true
         labels:
           title: Labels
           type: object
           additionalProperties:
             type: string
           description: Labels to apply to the application
-          ui:autofocus: true
+          # ui:autofocus: true
       required:
         - name
         - owner
