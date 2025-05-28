@@ -1,11 +1,12 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: go-app-template
-  description: A collection of example templates
+  name: altimetrik-app-templates
+  description: A collection of application templates
 spec:
   targets:
     - ./go-app/template.yaml
+    - ./go-app-with-s3/template.yaml
   
 ---
 apiVersion: backstage.io/v1alpha1

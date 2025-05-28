@@ -1,5 +1,8 @@
 {
   "yaml.schemas": {
-    "https://json.schemastore.org/yamllint.json": "file:///Users/dimitar/Projects/dimitar/backstage-templates/go-app/template.yaml"
+    "https://json.schemastore.org/yamllint.json": [
+      "file:///Users/dimitar/Projects/dimitar/backstage-templates/go-app/template.yaml",
+      "file:///Users/dimitar/Projects/dimitar/backstage-templates/go-app-with-s3/template.yaml"
+    ]
   }
 }
