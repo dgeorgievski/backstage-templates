@@ -5,7 +5,7 @@ metadata:
   name: go-app
   title: Add a Go App
 spec:
-  owner: guests
+  owner: platform
   type: service
   parameters:
     - properties:
@@ -28,6 +28,7 @@ spec:
           ui:autofocus: true
       required:
         - name
+        - owner
       title: Choose your repository location
     
   steps:

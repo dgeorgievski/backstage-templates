@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: basic-example-templates
+  name: go-app-template
   description: A collection of example templates
 spec:
   targets:
