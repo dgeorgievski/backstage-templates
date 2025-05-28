@@ -5,7 +5,7 @@ metadata:
   name: go-app
   title: Add a Go App
 spec:
-  owner: platform
+  owner: guests
   type: service
   parameters:
     - properties:
