@@ -61,9 +61,8 @@ spec:
         appNamespace: default
         argoInstance: in-cluster
         projectName: default
-        # necessary until we generate our own cert
         repoUrl: https://github.com/${{parameters.owner}}/${{parameters.name}}
-        path: "kustomize/base"
+        path: "deploy/manifests"
 
     - id: register
       name: Register
