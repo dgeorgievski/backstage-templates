@@ -15,4 +15,4 @@ metadata:
   description: Basic organization data for Altimetrik organization
 spec:
   targets:
-    - ./organization/users.yaml
+    - ./organization/am-users.yaml
