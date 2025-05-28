@@ -1,0 +1,78 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  description: Adds a basic Go application 
+  name: go-app
+  title: Add a Go App
+spec:
+  owner: platform
+  type: service
+  parameters:
+    - properties:
+        name:
+          title: Application Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+        owner:
+          title: GitHub Owner of Application Repository
+          type: string
+          description: Unique owner of the component repository
+          ui:autofocus: true
+        labels:
+          title: Labels
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels to apply to the application
+          ui:autofocus: true
+      required:
+        - name
+      title: Choose your repository location
+    
+  steps:
+    - id: template
+      name: Generating component
+      action: fetch:template
+      input:
+        url: https://github.com/dgeorgievski/go-template
+        values:
+          name: ${{parameters.name}}
+          owner: ${{parameters.owner}}
+    - id: publish
+      name: Publishing to a github repository
+      action: publish:github
+      input:
+        repoUrl: github.com?repo=${{parameters.name}}&owner=${{parameters.owner}}
+        defaultBranch: main
+        description: A Go application scaffolded by Backstage
+        repoVisibility: public
+        values:
+          name: ${{parameters.name}}
+          owner: ${{parameters.owner}}
+          labels: ${{ parameters.labels }}
+      
+    - id: create-argocd-app
+      name: Create ArgoCD App
+      action: cnoe:create-argocd-app
+      input:
+        appName: ${{parameters.name}}
+        appNamespace: default
+        argoInstance: in-cluster
+        projectName: default
+        # necessary until we generate our own cert
+        repoUrl: https://github.com/${{parameters.owner}}/${{parameters.name}}
+        path: "kustomize/base"
+
+    - id: register
+      name: Register
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
+        catalogInfoPath: 'catalog-info.yaml'
+
+  output:
+    links:
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }}
