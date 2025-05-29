@@ -93,7 +93,7 @@ spec:
             - region
           type: object
       required:
-        - resourceConfig
+        - Config
   steps:
     - id: template
       name: Generating component
