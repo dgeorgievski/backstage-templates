@@ -31,6 +31,7 @@ spec:
           ui:autofocus: true
         owner:
           title: GitHub Owner of Application Repository
+          default: dgeorgievski
           type: string
           description: Unique owner of the component repository
           # ui:autofocus: true
@@ -64,15 +65,21 @@ spec:
               properties:
                 deletionPolicy:
                   description: Defaults to Delete
+                  default: Delete
                   enum:
                     - Delete
                     - Orphan
                   type: string
                 region:
+                  enum:
+                    - us-east-1
+                    - us-east-2
+                    - us-west-1
+                    - us-west-2
                   type: string
                 providerConfigName:
                   type: string
-                  default: default
+                  default: aws
                 tags:
                   items:
                     properties:
