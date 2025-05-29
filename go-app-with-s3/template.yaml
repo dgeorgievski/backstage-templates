@@ -56,7 +56,7 @@ spec:
         #   default: ObjectStorage
         #   description: Kind for the resource
         #   type: string
-        Config:
+        config:
           description: Config defines general properties of this AWS S3 Bucket.
           properties:
             deletionPolicy:
@@ -93,7 +93,7 @@ spec:
             - region
           type: object
       required:
-        - Config
+        - config
   steps:
     - id: template
       name: Generating component
