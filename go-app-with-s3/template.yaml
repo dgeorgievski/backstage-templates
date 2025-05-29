@@ -49,14 +49,14 @@ spec:
       type: object  
       description: Configure your bucket
       properties:
-        apiVersion:
-          default: awsblueprints.io/v1alpha1
-          description: APIVersion for the resource
-          type: string
-        kind:
-          default: ObjectStorage
-          description: Kind for the resource
-          type: string
+        # apiVersion:
+        #   default: awsblueprints.io/v1alpha1
+        #   description: APIVersion for the resource
+        #   type: string
+        # kind:
+        #   default: ObjectStorage
+        #   description: Kind for the resource
+        #   type: string
         config:
           description: ObjectStorageSpec defines the desired state of ObjectStorage
           properties:
@@ -71,6 +71,7 @@ spec:
                     - Orphan
                   type: string
                 region:
+                  default: us-east-1
                   enum:
                     - us-east-1
                     - us-east-2
@@ -112,7 +113,7 @@ spec:
       input:
         data:
           apiVersion: awsblueprints.io/v1alpha1
-          kind: ${{ parameters.kind }}
+          kind: ObjectStorage
           metadata:
             name: ${{ parameters.name }}
           spec: ${{ parameters.config }}
