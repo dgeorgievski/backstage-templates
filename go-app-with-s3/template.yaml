@@ -5,7 +5,7 @@ metadata:
   name: go-app-s3
   title: Create a Go service with S3 bucket
   annotations:
-    backstage.io/techdocs-ref: "dir: ."
+    backstage.io/techdocs-ref: dir:.
   links:
     - title: Kubernetes integration
       url: https://backstage.io/docs/features/kubernetes/
