@@ -112,7 +112,8 @@ spec:
           kind: ObjectStorage
           metadata:
             name: ${{ parameters.name }}
-          spec: ${{ parameters.config }}
+          spec: 
+            resourceConfig: ${{ parameters.config }}
       name: serialize
 
     - action: roadiehq:utils:fs:write
