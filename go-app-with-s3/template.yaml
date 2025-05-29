@@ -57,47 +57,44 @@ spec:
         #   default: ObjectStorage
         #   description: Kind for the resource
         #   type: string
-        config:
-          description: ObjectStorageSpec defines the desired state of ObjectStorage
+        Config:
+          description: Config defines general properties of this AWS resource.
           properties:
-            resourceConfig:
-              description: ResourceConfig defines general properties of this AWS resource.
-              properties:
-                deletionPolicy:
-                  description: Defaults to Delete
-                  default: Delete
-                  enum:
-                    - Delete
-                    - Orphan
-                  type: string
-                region:
-                  default: us-east-1
-                  enum:
-                    - us-east-1
-                    - us-east-2
-                    - us-west-1
-                    - us-west-2
-                  type: string
-                providerConfigName:
-                  type: string
-                  default: aws
-                tags:
-                  items:
-                    properties:
-                      key:
-                        type: string
-                      value:
-                        type: string
-                    required:
-                      - key
-                      - value
-                    type: object
-                  type: array
-              required:
-                - region
-              type: object
+            deletionPolicy:
+              description: Defaults to Delete
+              default: Delete
+              enum:
+                - Delete
+                - Orphan
+              type: string
+            region:
+              default: us-east-1
+              enum:
+                - us-east-1
+                - us-east-2
+                - us-west-1
+                - us-west-2
+              type: string
+            providerConfigName:
+              type: string
+              default: aws
+            tags:
+              items:
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+                required:
+                  - key
+                  - value
+                type: object
+              type: array
           required:
-            - resourceConfig
+            - region
+          type: object
+      required:
+        - resourceConfig
   steps:
     - id: template
       name: Generating component
