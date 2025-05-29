@@ -1,4 +1,5 @@
 site_name: Go Service with S3 template
 nav:
   - Home: index.md
-theme: readthedocs
+theme: 
+  name: material
