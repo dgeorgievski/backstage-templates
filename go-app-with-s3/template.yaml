@@ -10,9 +10,7 @@ metadata:
     - title: Kubernetes integration
       url: https://backstage.io/docs/features/kubernetes/
     - title: GitHub integration
-      url: https://backstage.io/docs/features/integrations/github/
-    - title: ArgoCD integration 
-      url: https://backstage.io/docs/features/argo-cd/ 
+      url: https://backstage.io/docs/integrations/github/locations
     - title: Well known Backstage annotations
       url: https://backstage.io/docs/features/software-catalog/well-known-annotations/
     - title: Backstage Software Templates 
